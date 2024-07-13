@@ -1,0 +1,363 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Roboto;
+  background-color: #ddd;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+input {
+  background-color: transparent;
+  font-size: 1em;
+  font-weight: 500;
+  border: 2px solid #222;
+  outline: none;
+  padding: 0.5em;
+  border-radius: 2em;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  padding-inline: 10vw;
+  margin-top: 3em;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  width: 100%;
+
+  .bx {
+    background-color: white;
+    padding: 0.7em;
+    border-radius: 50%;
+  }
+}
+
+div.avatar {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+header>span {
+  margin-left: auto;
+  display: flex;
+  justify-content: end;
+
+  #search {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAd5JREFUSEu11cvLTWEUx/HPGxnIpSiXiZAwcIuSAQpFL2XqUgxIURhQBv4AMiEhDCgk5Q+Q0VsImSAlopTIgFwi9+uz6nl1HO/e5xnssya7zn7O+j5rrd9v7R5djp4u51cHmIB1WInZ+SJ3cAkX8LzkcgMBRuAcVtck+I2L2IRPdaB2wFDcwgx8xUkcxpOcZDJ2YQuG5LOL8L0K0g44iw14hhV4UPHHWbicLjAeB7G7BDAT9/Aj9Xk+ot91sRhX8A2T8GKgw60VHMF2HMWOkgHiPNYnyF7s7wR4jCm5//cLAUvQh2vpGRX9F60VfEQMeRB+FQJGpWpf4w1GdwK8x3AMQ8BKIs5+wCuM6QS4mw01L3ngdkn2pKQFSW03c5uWdQIcSKbZgxPYVgg4kzyyMbUnBLKzE2AqHuJnoUzDYFdz0sqq2412Ktv/KZYnCT6qqGRONtrY7PatJUaLM62r4guO41B2dryPKmNVbMbgnDRmEK6PYdfKtP/lyGygVTVzeJd20b7U0rWYm12/FPH7P1G3ridml/Yids/nrK4bOIa3CB+E0WKdhwpDSeGJv9HEBycg1zEdsQ0W4mU/oQlA5AqThaKm5fmcbhoQ+cal9b4mfz8abVGtJ5tqUSWk64A/OxFWGSrrSC8AAAAASUVORK5CYII=");
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+    background-size: 14px;
+    padding-left: 30px;
+  }
+}
+
+main {
+  margin-top: 1em;
+  padding-inline: 10vw;
+  display: grid;
+  gap: 0.5em;
+  grid-template-areas:
+    "cta cta nutrition"
+    "activity activity nutrition";
+
+  >* {
+    border-radius: 1em;
+    padding: 1em;
+  }
+
+  #cta {
+    grid-area: cta;
+    background-image: url(./assets/img_1.webp);
+    background-size: cover;
+    padding: 2em;
+
+    .top {
+      display: inline;
+      padding: 0.5em 2em;
+      background-color: #ffffff55;
+      border-radius: 2em;
+      font-weight: 600;
+    }
+
+    .bx {
+      display: inline-block;
+      background-color: #fff;
+      border-radius: 50%;
+      padding: 0.65em;
+    }
+
+    .title {
+      font-size: 3em;
+      max-width: 9ch;
+      margin-block: 0.5em;
+    }
+
+    button {
+      background-color: #fff;
+      border-radius: 2em;
+      font-weight: 600;
+      padding: 0.8em 2em;
+      border: none;
+    }
+  }
+
+  #nutrition {
+    grid-area: nutrition;
+    background-color: white;
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      >div {
+        >:nth-child(1) {
+          width: 100%;
+          font-weight: 600;
+          margin-bottom: 0.5em;
+        }
+
+        >:nth-child(2) {
+          font-size: 0.875em;
+          color: #555;
+        }
+      }
+
+      button {
+        background-color: #f0f0f0;
+        border: none;
+        height: fit-content;
+        padding: 0.5em;
+        border-radius: 2em;
+        padding-right: 30px;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAPJJREFUSEvFk7EOAUEQhr97AgqRaKm9gMYL0VHRiFCg9EYSb6CSaFUSegk3yRXr7O7s3d7ltt3d75v9Zzah5pXUzCdWsAbewMpVaIxgD8wy8Bw42CRlBR3gAnQN6BLY5CVlBG3gCQyAE9DLoAtgGyuYpJlLpSPgBvSBcxZPdESSt+Qu6w6MgSvQAl6xTZYm7nIQkQyBh2/UQ3pgVm6yjil8qv0jTRAFF7lP4IJLMyWyoOUSVAJ3vaAyuEvwsby9UCzmfVtEeUFpeMgLouDaFAVNiXZI+wfafXW/EYFtitRKjQM/RYdMURH4X18biahoxd7zXwouJhn8uXp/AAAAAElFTkSuQmCC");
+        background-repeat: no-repeat;
+        background-size: 12px;
+        background-position: right 10px center;
+        min-width: fit-content;
+      }
+    }
+
+    #chart-container {
+      position: relative;
+      width: 50%;
+      margin: auto;
+    }
+
+    .tab-container {
+      display: grid;
+      gap: 0.25em;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: #eee;
+      padding: 2px;
+      border-radius: 2em;
+
+      >* {
+        width: 100%;
+        text-align: center;
+        padding-block: 0.5em;
+        color: #555;
+        font-size: 0.875em;
+      }
+    }
+
+    .tab-container p.active {
+      background-color: #fff;
+      color: black;
+      font-weight: 600;
+      border-radius: inherit;
+    }
+
+    .tab-content {
+      margin-block: 0.875em;
+      
+      >:first-child {
+        border-block: 1px solid #ddd;
+      }
+
+      >:not(:first-child) {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .item-container {
+        display: flex;
+        padding-block: 0.5em;
+
+        .item-logo {
+          max-width: 2.5em;
+          max-height: 2.5em;
+          padding: 8px;
+          border-radius: 50%;
+          margin-right: 1em;
+        }
+
+        .item-details {
+          width: 100%;
+
+          p {
+            font-size: 0.875em;
+            font-weight: 600;
+            margin-bottom: 0.25em;
+          }
+
+          ul {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75em;
+            color: #555;
+
+            li:first-child {
+              list-style: none;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      border: 2px dotted #ccc;
+      background-color: transparent;
+      padding: 1em;
+      border-radius: 2em;
+      font-weight: 600;
+
+      .bx {
+        font-weight: 600;
+      }
+    }
+  }
+
+  #activity {
+    grid-area: activity;
+    display: grid;
+    gap: 0.5em;
+    grid-template-areas:
+      "head head head"
+      "body body body"
+    ;
+    background-color: white;
+
+    .section-head {
+      grid-area: head;
+      display: flex;
+      gap: 1em;
+
+      & button {
+        margin-left: auto;
+      }
+
+      & p {
+        font-weight: 600;
+      }
+
+      & button,
+      select {
+        font-weight: 600;
+        background-color: #f0f0f0;
+        border: none;
+        outline: none;
+        border-radius: 2em;
+        padding: 5px 20px;
+      }
+
+      button {
+        padding-left: 40px;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAFRJREFUSEtjZKAxYKSx+QyjFsBC+D+UgREi1Aoiii3AaQDU5UPPAnQXU90HoxYwEAoCQvLwEghXPiBkACH5UQsIxtFoEFEeRFSrSalVH+B00NC3AAC/7DIZ3uPF7wAAAABJRU5ErkJggg==");
+        background-repeat: no-repeat;
+        background-position: left 10px center;
+        background-size: 16px;
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+
+      select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 40px;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEyOCAxNTJsMTI4IDEyOCAxMjgtMTI4IiBmaWxsPSIjMDAwIi8+PC9zdmc+');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 12px;
+      }
+    }
+
+    .section-body {
+      grid-area: body;
+      display: grid;
+      gap: 0.5em;
+      grid-template-columns: repeat(3, 1fr);
+
+      >* {
+        min-width: 100%;
+      }
+    }
+
+    .quant {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+
+      & p {
+        font-size: clamp(1.5em, 2vw + 0.5em, 3em);
+        display: inline;
+      }
+
+      & span {
+        font-size: 0.875em;
+        color: #555;
+        margin-left: 0.5em;
+      }
+    }
+
+    .bar-container {
+      height: 2em;
+      border-radius: 1em;
+      background-image: repeating-linear-gradient(45deg, #dddddd 0, #dddddd 2px, transparent 0, transparent 50%);
+      background-size: 8px 8px;
+      background-color: #eeeeee;
+      overflow: hidden;
+    }
+
+    div.bar {
+      height: 100%;
+      border-radius: 1em;
+    }
+
+    #steps div.bar {
+      width: 85%;
+      background: rgb(255, 226, 34);
+      background: linear-gradient(90deg, rgba(255, 226, 34, 1) 0%, rgba(255, 82, 34, 1) 100%);
+    }
+
+    #run div.bar {
+      background: rgb(170, 255, 255);
+      background: linear-gradient(90deg, rgba(170, 255, 255, 1) 0%, rgba(0, 0, 255, 1) 100%);
+    }
+  }
+}

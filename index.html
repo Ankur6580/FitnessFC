@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>FitnessFC | FRONTCODER</title>
+</head>
+
+<body>
+  <header>
+    <h1>FitnessFC</h1>
+    <input type="date" name="datePicker" id="date">
+    <span><input type="text" name="searchBox" id="search"></span>
+    <i class="bx bxs-bell"></i>
+    <i class="bx bxs-cog"></i>
+    <div class="avatar"><img src="./assets/user.png"></div>
+  </header>
+
+  <main>
+    <div id="cta">
+      <p class="top">Complex</p> <i class="bx bx-dumbbell"></i>
+      <p class="title">Integrated approach to the body</p>
+      <button type="button">Start today</button>
+    </div>
+    <div id="nutrition">
+      <div class="section-head">
+        <div>
+          <p>Nutrition</p>
+          <p>Daily allowance is 1600kcal</p>
+        </div>
+        <button type="button">Edit goal</button>
+      </div>
+      <div id="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+      <div class="tab-container">
+        <p class="active">Breakfast</p>
+        <p>Lunch</p>
+        <p>Dinner</p>
+      </div>
+      <div class="tab-content" id="breakfast">
+        <div class="item-container">
+          <div class="item-logo"><img
+              src="https://cdn-icons-png.freepik.com/512/5417/5417322.png?uid=R57106331&ga=GA1.1.278585926.1719605164">
+          </div>
+          <div class="item-details">
+            <p class="item-name">Herbal tea</p>
+            <ul class="nutrients">
+              <li>2kcal</li>
+              <li>P 0g</li>
+              <li>F 0g</li>
+              <li>C 0g</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="item-logo"><img
+              src="https://cdn-icons-png.freepik.com/512/604/604909.png?uid=R57106331&ga=GA1.1.278585926.1719605164">
+          </div>
+          <div class="item-details">
+            <p class="item-name">Fried egg</p>
+            <ul class="nutrients">
+              <li>154kcal</li>
+              <li>P 14g</li>
+              <li>F 12g</li>
+              <li>C 2g</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="item-logo"><img
+              src="https://cdn-icons-png.freepik.com/512/16090/16090792.png?uid=R57106331&ga=GA1.1.278585926.1719605164">
+          </div>
+          <div class="item-details">
+            <p class="item-name">Vegetable salad</p>
+            <ul class="nutrients">
+              <li>180kcal</li>
+              <li>P 2g</li>
+              <li>F 16g</li>
+              <li>C 8g</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <button type="button"><i class="bx bx-plus"></i>Add a meal</button>
+    </div>
+    <div id="activity">
+      <div class="section-head">
+        <p>Activity</p>
+        <button type="button">Comparison</button>
+        <select name="day" id="day">
+          <option value="today">Today</option>
+        </select>
+      </div>
+      <div class="section-body">
+        <div id="steps">
+          <div class="quant">
+            <p>7145</p><span>steps</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar"></div>
+          </div>
+        </div>
+        <div id="run">
+          <div class="quant">
+            <p>5</p><span>km/run</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar"></div>
+          </div>
+        </div>
+        <div id="training">
+          <div class="quant">
+            <p>0</p><span>training</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
