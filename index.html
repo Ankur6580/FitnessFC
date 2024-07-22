@@ -16,13 +16,16 @@
   <header>
     <h1>FitnessFC</h1>
     <input type="date" name="datePicker" id="date">
-    <span><input type="text" name="searchBox" id="search"></span>
-    <i class="bx bxs-bell"></i>
-    <i class="bx bxs-cog"></i>
+    <span>
+      <input type="text" name="searchBox" id="search">
+      <i class="bx bxs-bell"></i>
+      <i class="bx bxs-cog"></i>
+    </span>
     <div class="avatar"><img src="./assets/user.png"></div>
   </header>
 
   <main>
+    <input type="date" name="datePicker" id="date-second" style="display: none;" placeholder="select date">
     <div id="cta">
       <p class="top">Complex</p> <i class="bx bx-dumbbell"></i>
       <p class="title">Integrated approach to the body</p>
@@ -39,12 +42,16 @@
       <div id="chart-container">
         <canvas id="chart"></canvas>
       </div>
+      
+      
       <div class="tab-container">
-        <p class="active">Breakfast</p>
-        <p>Lunch</p>
-        <p>Dinner</p>
-      </div>
-      <div class="tab-content" id="breakfast">
+        <p class="tab active" id="breakfastTab">Breakfast</p>
+        <p class="tab" id="lunchTab">Lunch</p>
+        <p class="tab" id="dinnerTab">Dinner</p>
+    </div>
+
+
+      <div class="tab-content visible" id="breakfast">
         <div class="item-container">
           <div class="item-logo"><img
               src="https://cdn-icons-png.freepik.com/512/5417/5417322.png?uid=R57106331&ga=GA1.1.278585926.1719605164">
@@ -88,7 +95,13 @@
           </div>
         </div>
       </div>
-      <button type="button"><i class="bx bx-plus"></i>Add a meal</button>
+      <div class="tab-content" id="lunch">
+        <p class="no-item-msg">No items ! Click below to Add items </p>
+      </div>
+      <div class="tab-content" id="dinner">
+        <p class="no-item-msg">No items ! Click below to Add items </p>
+      </div>
+      <button type="button" id="add-meal"><i class="bx bx-plus"></i>Add a meal</button>
     </div>
     <div id="activity">
       <div class="section-head">

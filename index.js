@@ -1,46 +1,64 @@
-const ctx = document.getElementById('chart');
+const tabs = document.querySelectorAll(".tab");
+const contents = document.querySelectorAll(".tab-content");
 
-new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ["Carbs", "Proteins", "Fats"],
-    datasets: [{
-      data: [51, 43, 32],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      borderWidth: 1
-    }]
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+
+    tabs.forEach(t => t.classList.remove("active"));
+    contents.forEach(content => content.classList.remove("visible"));
+    tab.classList.add("active");
+    document.getElementById(tab.id.replace("Tab", "")).classList.add("visible");
+  });
+});
+
+
+
+
+const ctx = document.getElementById('chart').getContext('2d');
+
+const backgroundColor = ['#FFCA3A', '#C1292E', '#6FD08C'];
+const fontColor = ['#07120A', '#f0f0f0', '#1C0D0D'];
+
+const data = {
+  labels: ['Carbs', 'Protein', 'Fat'],
+  datasets: [{
+    data: [16, 14, 8],
+    backgroundColor: backgroundColor
+  }]
+};
+
+const dataLabels = {
+  color: fontColor,
+  font: {
+    size: 12,
+    weight: 'bold'
   },
+  formatter: (value, context) => {
+    let label = context.chart.data.labels[context.dataIndex];
+    let firstLetter = label.charAt(0);
+    return `${value}g ${firstLetter}`;
+  },
+  align: 'end',
+  anchor: 'end',
+  offset: 10,
+  borderRadius: 30,
+  backgroundColor: backgroundColor,
+  padding: 5,
+  clip: false
+};
+
+const chart = new Chart(ctx, {
+  type: 'pie',
+  data: data,
   options: {
     plugins: {
       legend: {
-        display: false // Hide the default legend
+        display: false
       },
-      datalabels: {
-        color: '#000',
-        font: {
-          size: 10,
-          weight: 'bold'
-        },
-        formatter: (value, ctx) => {
-          let label = ctx.chart.data.labels[ctx.dataIndex];
-          return `${value}g\n${label}`;
-        },
-        align: 'end',
-        anchor: 'end',
-        offset: 10,
-        borderRadius: 4,
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        padding: 0,
-        clip: false
-      }
+      datalabels: dataLabels
     },
     layout: {
-      padding: {
-        left: 30,
-        right: 30,
-        top: 30,
-        bottom: 30
-      }
+      padding: 60
     }
   },
   plugins: [ChartDataLabels]
