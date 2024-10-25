@@ -4,139 +4,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <title>Fitness FC | FRONTCODER</title>
+
   <link rel="stylesheet" href="index.css">
-  <script src="index.js" defer></script>
+  <script defer src="chart.js"></script>
+  <script defer src="dom.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <title>FitnessFC | FRONTCODER</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body>
   <header>
-    <h1>FitnessFC</h1>
-    <input type="date" name="datePicker" id="date">
-    <span>
-      <input type="text" name="searchBox" id="search">
-      <i class="bx bxs-bell"></i>
-      <i class="bx bxs-cog"></i>
-    </span>
-    <div class="avatar"><img src="./assets/user.png"></div>
+    <div class="container">
+      <div class="brand">
+        <img src="./assets/FitnessFC.svg" alt="model">
+      </div>
+      <div class="input-group">
+        <button aria-label="button" class="close"><i class="ri-close-fill"></i></button>
+        <div id="date-wrapper">
+          <input type="date" min="2024-10-01" max="2024-10-31" name="date" id="date-picker" placeholder="none">
+        </div>
+        <div id="searchBar">
+          <input type="text" size="8" placeholder="Search..." id="search">
+          <button aria-label="button" type="submit" id="searchBtn"><i class="ri-search-line"></i></button>
+        </div>
+        <button aria-label="button" id="bell"><i class="ri-notification-fill"></i></button>
+        <button aria-label="button" id="gear"><i class="ri-settings-3-fill"></i></button>
+      </div>
+      <div class="user">
+        <img
+          src="https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg?t=st=1729417722~exp=1729421322~hmac=067fd380458357f776c635c37823b5c5fa20bffce92f2f39a441f5239909ffbf&w=200"
+          alt="user">
+      </div>
+    </div>
   </header>
 
   <main>
-    <input type="date" name="datePicker" id="date-second" style="display: none;" placeholder="select date">
-    <div id="cta">
-      <p class="top">Complex</p> <i class="bx bx-dumbbell"></i>
-      <p class="title">Integrated approach to the body</p>
-      <button type="button">Start today</button>
-    </div>
-    <div id="nutrition">
-      <div class="section-head">
-        <div>
-          <p>Nutrition</p>
-          <p>Daily allowance is 1600kcal</p>
-        </div>
-        <button type="button">Edit goal</button>
-      </div>
-      <div id="chart-container">
-        <canvas id="chart"></canvas>
-      </div>
-      
-      
-      <div class="tab-container">
-        <p class="tab active" id="breakfastTab">Breakfast</p>
-        <p class="tab" id="lunchTab">Lunch</p>
-        <p class="tab" id="dinnerTab">Dinner</p>
+    <div class="banner wrapper">
+      <div class="overlay-image"></div>
+      <span>Health</span><span><i class="ri-heart-pulse-line"></i></span>
+      <h1>Integrated approach to the body</h1>
+      <button aria-label="button">Start Today</button>
     </div>
 
-
-      <div class="tab-content visible" id="breakfast">
-        <div class="item-container">
-          <div class="item-logo"><img
-              src="https://cdn-icons-png.freepik.com/512/5417/5417322.png?uid=R57106331&ga=GA1.1.278585926.1719605164">
-          </div>
-          <div class="item-details">
-            <p class="item-name">Herbal tea</p>
-            <ul class="nutrients">
-              <li>2kcal</li>
-              <li>P 0g</li>
-              <li>F 0g</li>
-              <li>C 0g</li>
-            </ul>
-          </div>
-        </div>
-        <div class="item-container">
-          <div class="item-logo"><img
-              src="https://cdn-icons-png.freepik.com/512/604/604909.png?uid=R57106331&ga=GA1.1.278585926.1719605164">
-          </div>
-          <div class="item-details">
-            <p class="item-name">Fried egg</p>
-            <ul class="nutrients">
-              <li>154kcal</li>
-              <li>P 14g</li>
-              <li>F 12g</li>
-              <li>C 2g</li>
-            </ul>
-          </div>
-        </div>
-        <div class="item-container">
-          <div class="item-logo"><img
-              src="https://cdn-icons-png.freepik.com/512/16090/16090792.png?uid=R57106331&ga=GA1.1.278585926.1719605164">
-          </div>
-          <div class="item-details">
-            <p class="item-name">Vegetable salad</p>
-            <ul class="nutrients">
-              <li>180kcal</li>
-              <li>P 2g</li>
-              <li>F 16g</li>
-              <li>C 8g</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-content" id="lunch">
-        <p class="no-item-msg">No items ! Click below to Add items </p>
-      </div>
-      <div class="tab-content" id="dinner">
-        <p class="no-item-msg">No items ! Click below to Add items </p>
-      </div>
-      <button type="button" id="add-meal"><i class="bx bx-plus"></i>Add a meal</button>
-    </div>
-    <div id="activity">
-      <div class="section-head">
-        <p>Activity</p>
-        <button type="button">Comparison</button>
-        <select name="day" id="day">
+    <div class="activity wrapper">
+      <div class="top-bar">
+        <span>Activity</span>
+        <button aria-label="button">Comparison</button>
+        <select aria-label="Choose an option" name="day" id="day">
           <option value="today">Today</option>
+          <option value="yesterday">Yesterday</option>
         </select>
       </div>
-      <div class="section-body">
-        <div id="steps">
-          <div class="quant">
-            <p>7145</p><span>steps</span>
-          </div>
-          <div class="bar-container">
-            <div class="bar"></div>
-          </div>
-        </div>
-        <div id="run">
-          <div class="quant">
-            <p>5</p><span>km/run</span>
-          </div>
-          <div class="bar-container">
-            <div class="bar"></div>
+
+      <div class="activities">
+        <div class="steps">
+          <div class="count">7145 <span>steps</span></div>
+          <div class="meter">
+            <div id="step" class="fill"></div>
           </div>
         </div>
-        <div id="training">
-          <div class="quant">
-            <p>0</p><span>training</span>
+        <div class="run">
+          <div class="count">5 <span>km/run</span></div>
+          <div class="meter">
+            <div id="run" class="fill"></div>
           </div>
-          <div class="bar-container">
-            <div class="bar"></div>
+        </div>
+        <div class="training">
+          <div class="count">0 <span>training</span></div>
+          <div class="meter">
+            <div id="training" class="fill"></div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="nutrition wrapper">
+      <div class="top-bar">
+        <p>Nutrition <span>Daily allowance: 1600kcal</span></p>
+        <button aria-label="button"><i class="ri-edit-box-fill"></i></button>
+      </div>
+
+      <div id="chart-wrapper">
+        <canvas id="chart-canvas">
+          <!-- Chart goes here -->
+        </canvas>
+        <div class="label">
+          <span>Your Data</span>
+          <span>Avg Data</span>
+        </div>
+      </div>
+
+      <div class="tab-group">
+        <ul class="tab-switch">
+          <li class="switch active">Breakfast</li>
+          <li class="switch">Lunch</li>
+          <li class="switch">Dinner</li>
+        </ul>
+
+        <select aria-label="Choose an option" name="tab-switch" id="tab-switch">
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+        </select>
+
+
+
+        <div id="breakfast" class="tab active">
+          <div class="items">
+            <div class="item">
+              <div class="logo"><img
+                  src="https://img.freepik.com/free-vector/cheeseburger-floating-cartoon-vector-icon-illustration-food-object-icon-isolated-flat-vector_138676-10414.jpg?t=st=1729429193~exp=1729432793~hmac=7e68698b3314ba0666af6d3a76b7859b31463fb99bbbfd19662ce2ae6dba202b&w=40"
+                  alt="logo">
+              </div>
+              <div class="details">
+                <p class="name">Burger</p>
+                <ul>
+                  <li>2kcal</li>
+                  <li>P 0g</li>
+                  <li>F 0g</li>
+                  <li>C 0g</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="logo"><img
+                  src="https://img.freepik.com/free-vector/cheeseburger-floating-cartoon-vector-icon-illustration-food-object-icon-isolated-flat-vector_138676-10414.jpg?t=st=1729429193~exp=1729432793~hmac=7e68698b3314ba0666af6d3a76b7859b31463fb99bbbfd19662ce2ae6dba202b&w=40"
+                  alt="logo">
+              </div>
+              <div class="details">
+                <p class="name">Burger</p>
+                <ul>
+                  <li>2kcal</li>
+                  <li>P 0g</li>
+                  <li>F 0g</li>
+                  <li>C 0g</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="logo"><img
+                  src="https://img.freepik.com/free-vector/cheeseburger-floating-cartoon-vector-icon-illustration-food-object-icon-isolated-flat-vector_138676-10414.jpg?t=st=1729429193~exp=1729432793~hmac=7e68698b3314ba0666af6d3a76b7859b31463fb99bbbfd19662ce2ae6dba202b&w=40"
+                  alt="logo">
+              </div>
+              <div class="details">
+                <p class="name">Burger</p>
+                <ul>
+                  <li>2kcal</li>
+                  <li>P 0g</li>
+                  <li>F 0g</li>
+                  <li>C 0g</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="lunch" class="tab"></div>
+        <div id="dinner" class="tab"></div>
+      </div>
+      <center><button aria-label="button">Add a Meal <i class="ri-add-fill"></i></button></center>
     </div>
   </main>
 </body>
