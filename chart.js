@@ -21,12 +21,6 @@ chartLabels.forEach((span) => {
   brdColors.push(style.borderColor)
 })
 
-console.log("Chart Colors =================");
-console.log(`BackgroundColors are:\n ${bgColors[0]} and \n ${bgColors[1]}`)
-console.log(`BorderColors are:\n ${brdColors[0]} and\n ${brdColors[1]}`)
-console.log("============================");
-
-
 let userBgColor = bgColors[0]
 let userBrdColor = brdColors[0]
 let avgBgColor = bgColors[1]
